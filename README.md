@@ -7,19 +7,16 @@ Going back years later to add a feature would be much easier with a single locat
 
 Included structures:
 
-Binary Search Tree
-
-Linked List
+AVL Tree
 
 Binary Heap
 
+Binary Search Tree
+
 Huffman Encoding (usage of Binary Heap)
 
+Linked List
+
 Trie
-
-Data structures that had their own project prior to this one:
-
-AVL Tree: https://github.com/TheKnowles/avl_tree_tutorial
-
 
 All folders include the code with a sample main. 
