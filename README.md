@@ -15,6 +15,8 @@ Binary Heap
 
 Huffman Encoding (usage of Binary Heap)
 
+Trie
+
 Data structures that had their own project prior to this one:
 
 AVL Tree: https://github.com/TheKnowles/avl_tree_tutorial
