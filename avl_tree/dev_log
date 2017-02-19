@@ -1,0 +1,19 @@
+1/11/15
+There appears to be a bug in the right left case.
+Insertion order: 10 9 15 11 17 12
+
+after rotation, 12 is missing from the list?
+found bug, 12 gets killed in rotateRight lines 247-248
+
+attempts to rotate right on the subtree rooted at 15
+assigns new root of 11 and assigns 11 as new right child
+
+fix is to assign 12/node as 15's left child
+
+1/17/15
+
+Bug in deletion of non root two children. Left child of node to delete is dangled.
+Do not reassign ptr. If swap node has a subtree, it goes under original node marked
+for deletion's left child.
+
+Part II released, everything looks good.
