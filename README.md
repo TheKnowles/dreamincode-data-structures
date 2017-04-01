@@ -17,6 +17,8 @@ Huffman Encoding (usage of Binary Heap)
 
 Linked List
 
+Radix Tree
+
 Trie
 
 All folders include the code with a sample main. 
