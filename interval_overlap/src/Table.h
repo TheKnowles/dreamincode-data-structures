@@ -73,14 +73,19 @@ struct Table {
         int j = i+1;
         int tmp = 0;
         while(intervals[j].intervals >= k && j < range) {
+          //cout << "checking " << i << " " << j << endl;
           if(intervals[j].end == true && ((intervals[i].part_of & intervals[j].part_of) == intervals[j].part_of)){
+	    //cout << " i: " << i << " j: " << j << endl;
+	    //cout << " i mask: " << intervals[i].part_of << " j mask: " << intervals[j].part_of << endl;
+	    //cout << " i & j: " << (intervals[i].part_of & intervals[j].part_of) << endl;
+	    //cout << "found overlap of size: " << (j-i+1) << endl;
+            tmp = (j-i+1);
             if (tmp > max){
               max = tmp;
               max_start = i;
               max_end = j;
             }
           }
-          tmp = (j-i+1);
           j++;
         }//while
       }

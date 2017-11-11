@@ -63,5 +63,39 @@ int main(){
   cout << "Longest intersection of any 4 lines:\n";
   result = table3.find_max_overlap(4);
   cout << result;
+
+
+  vector<Interval> intervals3;
+  intervals3.push_back(Interval(4, 6)); 
+  intervals3.push_back(Interval(2, 5));
+  intervals3.push_back(Interval(3, 4)); 
+  intervals3.push_back(Interval(3, 5)); 
+  intervals3.push_back(Interval(3, 6)); 
+  intervals3.push_back(Interval(5, 8)); 
+  intervals3.push_back(Interval(4, 7)); 
+  intervals3.push_back(Interval(1, 5)); 
+  intervals3.push_back(Interval(4, 6)); 
+  intervals3.push_back(Interval(3, 6)); 
+  intervals3.push_back(Interval(2, 8)); 
+  //intervals3.push_back(Interval(2, 8)); 
+  intervals3.push_back(Interval(1, 2)); 
+  intervals3.push_back(Interval(4, 5)); 
+  intervals3.push_back(Interval(5, 7)); 
+  intervals3.push_back(Interval(1, 4)); 
+  intervals3.push_back(Interval(1, 6)); 
+  //intervals3.push_back(Interval(3, 5)); 
+  intervals3.push_back(Interval(2, 4)); 
+  //intervals3.push_back(Interval(3, 5));
+
+  
+  Table table4(find_storage_size(intervals3));
+  for(Interval& in : intervals3) table4.add_interval(in);
+
+  cout << table4;
+  cout << "\n\n";
+  cout << "Longest intersection of any 8 lines:\n";
+  result = table4.find_max_overlap(8);
+  cout << result;
+  
   return 0;
 }
