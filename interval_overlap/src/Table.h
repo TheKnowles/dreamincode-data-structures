@@ -26,7 +26,7 @@ struct Slot {
   Slot():intervals(0),start(false),end(false),part_of(0x0) {}
   unsigned int intervals;
   bool start, end;
-  bitset<50> part_of; //bit mask what Intervals this slot is a part of
+  bitset<32> part_of; //bit mask what Intervals this slot is a part of
 };
 
 //table requires knowledge of the max elements it can have from any interval
@@ -35,9 +35,9 @@ struct Table {
   ~Table() {delete[] intervals;}
   int range;
   Slot* intervals;
+  unsigned int mask = 0x00;
   friend ostream& operator<<(ostream& os, Table& rhs);
   void add_interval(const Interval& rhs){
-    static unsigned int mask = 0x00;
     for(int i = rhs.start; i <= rhs.end; i++) {
       intervals[i].intervals++;
       if (i == rhs.start){
@@ -73,12 +73,16 @@ struct Table {
         int j = i+1;
         int tmp = 0;
         while(intervals[j].intervals >= k && j < range) {
-          //cout << "checking " << i << " " << j << endl;
-          if(intervals[j].end == true && ((intervals[i].part_of & intervals[j].part_of) == intervals[j].part_of)){
-	    //cout << " i: " << i << " j: " << j << endl;
-	    //cout << " i mask: " << intervals[i].part_of << " j mask: " << intervals[j].part_of << endl;
-	    //cout << " i & j: " << (intervals[i].part_of & intervals[j].part_of) << endl;
-	    //cout << "found overlap of size: " << (j-i+1) << endl;
+          cout << "checking " << i << " " << j << endl;
+          //cout << " i mask: " << intervals[i].part_of << " j mask: " << intervals[j].part_of << endl;
+          //cout << " i & j: " << (intervals[i].part_of & intervals[j].part_of) << endl;
+          if(intervals[j].end == true && 
+              ((intervals[i].part_of & intervals[j].part_of) == intervals[j].part_of ||
+                (intervals[i].part_of & intervals[j].part_of) == intervals[i].part_of)){
+	    cout << " i: " << i << " j: " << j << endl;
+	    cout << " i mask: " << intervals[i].part_of << " j mask: " << intervals[j].part_of << endl;
+	    cout << " i & j: " << (intervals[i].part_of & intervals[j].part_of) << endl;
+	    cout << "found overlap of size: " << (j-i+1) << endl;
             tmp = (j-i+1);
             if (tmp > max){
               max = tmp;
