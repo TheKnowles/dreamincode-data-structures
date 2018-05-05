@@ -11,7 +11,9 @@ AVL Tree
 
 Binary Heap
 
-Binary Search Tree
+Binary Search Tree  
+
+Hash Table  
 
 Huffman Encoding (usage of Binary Heap)
 
